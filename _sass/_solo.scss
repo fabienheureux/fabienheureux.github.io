@@ -11,13 +11,13 @@ html {
 }
 
 body {
-  margin: 2rem 0 5rem;
+  // margin: 2rem 0 5rem;
   color: #333;
 }
 
 @media (min-width: 30rem) {
   body {
-    margin-top: 5rem;
+    // margin-top: 5rem;
   }
 }
 
@@ -148,5 +148,28 @@ pre > code {
 .container {
   max-width: 30rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 10rem 1rem 0 1rem;
+}
+.bg 
+{
+    background: white;
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    right: 40px; 
+    bottom: 0;
+}
+
+body 
+{
+    height: 100vh;
+    background-color: rgb(54, 55, 149);
+    background-image: linear-gradient(to top, rgb(0, 92, 151), rgb(54, 55, 149));
+}
+
+h1, a  
+{
+    background: -webkit-linear-gradient(rgb(0, 92, 151), rgb(54, 55, 149));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
