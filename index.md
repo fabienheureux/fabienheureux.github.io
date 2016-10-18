@@ -8,6 +8,6 @@ I spend my time listening music, taking photographs, drink beers and writing cod
 
 I’m currently unavailable for work, but you can shoot me an email on [linkedin](https://fr.linkedin.com/in/fabienlefrapper) anyway.
 
-`Kenavo`
+`yecʼhed mat 🍺`
 
 
