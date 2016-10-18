@@ -173,3 +173,11 @@ h1, a
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+::selection {
+    background: rgb(54,55,149); /* WebKit/Blink Browsers */
+    color: white;
+}
+::-moz-selection {
+    background: rgb(54,55,149); /* Gecko Browsers */
+    color: white;
+}
