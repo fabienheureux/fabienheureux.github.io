@@ -2,6 +2,8 @@
 layout: default
 ---
 
-NIQUEZ BIEN VOS MÈRES 
+👀 se coucher tard nuit. 
 
+⌨️ dev fullstack freelance (node|python|react)
 
+📪 contact at fabienlefrapper dot me 
