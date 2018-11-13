@@ -19,8 +19,8 @@ const IndexPage = () => (
       👀{' '}
       <a
         target="_blank"
-        hrel="noopener noreferrer"
-        ref="https://www.youtube.com/watch?v=MGE_61qLWm0"
+        rel="noopener noreferrer"
+        href="https://www.youtube.com/watch?v=MGE_61qLWm0"
       >
         se coucher tard nuit
       </a>

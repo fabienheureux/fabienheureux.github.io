@@ -3,8 +3,7 @@ import React from 'react'
 import CodeProject from '../../components/codeProject'
 import Layout from '../../components/layout'
 
-const SecondPage = () => (
-  <Layout>
+const coucou = (
     <CodeProject
       title="Nukemap"
       description={[
@@ -16,6 +15,10 @@ const SecondPage = () => (
       repo="https://github.com/fabienheureux/nukemap"
       year="2018"
     />
+)
+
+const SecondPage = () => (
+  <Layout>
     <CodeProject
       title="Wing"
       description={[
