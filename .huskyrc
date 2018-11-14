@@ -1,0 +1,5 @@
+{
+  "hooks": {
+    "post-push": "npm run deploy"
+  }
+}
