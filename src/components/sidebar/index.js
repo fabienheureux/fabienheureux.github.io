@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Header = ({ siteTitle }) => (
+const Sidebar = ({ siteTitle }) => (
   <nav
     style={{
       width: '300px',
@@ -23,4 +23,4 @@ const Header = ({ siteTitle }) => (
   </nav>
 )
 
-export default Header
+export default Sidebar

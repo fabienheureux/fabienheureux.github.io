@@ -17,7 +17,7 @@ const coucou = (
   />
 )
 
-const SecondPage = () => (
+const CodePage = () => (
   <Layout>
     <CodeProject
       title="Wing"
@@ -46,7 +46,7 @@ const SecondPage = () => (
         "Development of both the backend and the frontend of a single-page website promoting Mondelez' sustainable farming: Harmony.",
         'One of the key-feature of this project was to provide a consistent UI (and backoffice) for ~ 15 different languages.',
       ]}
-      tags={['javascript', 'pixijs', '3d']}
+      tags={['javascript', 'pixijs', '3d', 'gravcms']}
       showcase="http://harmony.info"
       year="2018"
     />
@@ -83,7 +83,7 @@ const SecondPage = () => (
       title="KuB, le webmedia breton de la culture"
       description={[
         "Complete rebuild of KuB's website.",
-        'One of the key-aspect of this project was to build a clean backoffice allowing to build complex pages without hassle, containing media from many sources.',
+        'A challenge of this project was to build a clean backoffice allowing to build complex pages without hassle, containing media from many sources.',
       ]}
       tags={['django', 'react', 'redux']}
       showcase="http://kubweb.media"
@@ -91,7 +91,10 @@ const SecondPage = () => (
     />
     <CodeProject
       title="Danone"
-      description={["With BETC & Cogit Studio.","Worked on a fully rebuild of the DanOn's frontend."]}
+      description={[
+        'With BETC & Cogit Studio.',
+        "Worked on a full rebuild of DanOn's frontend.",
+      ]}
       showcase="https://www.dan-on.com"
       tags={['javascript', 'liferay']}
       year="2016"
@@ -106,7 +109,65 @@ const SecondPage = () => (
       showcase="https://www.schneider-electric.com"
       year="2015-2016"
     />
+    <p style={{ paddingBottom: '6em' }}>
+      <h4 style={{ lineHeight: '1.5em' }}>
+        And a bunch of other projects, mainly built using good old PHP CMS like
+        Drupal, Wordpress or Spip
+      </h4>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://www.ceriseh.com"
+      >
+        www.ceriseh.com
+      </a>
+      <br />
+      <a target="_blank" rel="noopener noreferrer" href="https://www.esmd.fr">
+        www.esmd.fr
+      </a>
+      <br />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://atelierrozzen.com"
+      >
+        atelierrozzen.com
+      </a>
+      <br />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://www.floretricotelle.com"
+      >
+        www.floretricotelle.com
+      </a>
+      <br />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://cinematihanok.bzh"
+      >
+        cinematihanok.bzh
+      </a>
+      <br />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://casbah-records.com"
+      >
+        casbah-records.com
+      </a>
+      <br />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://www.douarnevez.com"
+      >
+        www.douarnevez.com
+      </a>
+      <br />. . .
+    </p>
   </Layout>
 )
 
-export default SecondPage
+export default CodePage
