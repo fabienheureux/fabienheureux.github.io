@@ -1,3 +1,6 @@
+/*
+  0. Before the css reset, let's set various css variables
+*/
 :root {
   /* --violet: #817c91; Removed because contrast is too low with #fff as the background */
   --violet: #5a5766;
@@ -16,12 +19,97 @@
   --aside-width: 300px;
 }
 
+@media (min-width: 1200px) {
+  :root {
+    --aside-width: 400px;
+  }
+}
 @media (max-width: 768px) {
   :root {
     --p: 25px;
   }
 }
 
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+  10. And now custom styles :) 
+*/
 ::-moz-selection {
   color: var(--background);
   background: var(--color);
@@ -58,34 +146,67 @@ body {
   }
 }
 
-p {
+main p,
+main ul {
+  font-size: 1.25em;
+  line-height: 1.25em;
+  margin-bottom: 1em;
+}
+
+main li:before {
+  content: "_ ";
+  padding-right: 0.5em;
+}
+
+main ul {
+  margin: 0 auto 1em 0;
+}
+main li {
+  margin: 0.5em 0 0 0;
+}
+
+.introduction {
+  margin: 1em 0 2em 0;
+}
+
+.introduction p,
+.introduction ul {
   font-size: 1.5em;
-  margin-top: auto;
+  line-height: 1.5em;
 }
 
 header {
   font-size: 2em;
   grid-column: left / aside;
   grid-row: header / main;
-  outline: 1px solid var(--color);
+  border-bottom: 1px solid var(--color);
   display: flex;
   align-items: center;
   padding-left: var(--p-left);
   font-weight: 300;
 }
 
+header a {
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   header {
-    height: var(--header-height);
+    min-height: var(--header-height);
   }
+}
+
+aside:empty {
+  display: none;
 }
 
 @media (min-width: 768px) {
   aside {
     border-left: var(--border);
-    border-top: var(--border);
     grid-column: aside / right;
     grid-row: main / bottom;
+    padding-left: calc(var(--p) / 2);
+    padding-top: var(--p);
   }
 }
 
@@ -100,6 +221,18 @@ ul,
 li {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
+
+nav {
+}
+
+nav span {
+  width: 20px;
+  height: 1px;
+  display: inline-block;
+  margin: 0 10px;
+  background: var(--color);
 }
 
 main {
@@ -111,10 +244,39 @@ main {
   line-height: 2em;
 }
 
+footer {
+  grid-column: aside / right;
+  grid-row: header / main;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+@media (max-width: 768px) {
+  footer {
+    border-top: var(--border);
+    min-height: var(--header-height);
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    border-bottom: var(--border);
+    border-left: var(--border);
+  }
+}
+
+footer a {
+  text-transform: uppercase;
+}
+
 h1 {
   font-size: 5em;
   font-weight: normal;
   text-transform: uppercase;
+  margin: 0;
+  line-height: 1em;
 }
 
 @media (max-width: 768px) {
@@ -124,13 +286,16 @@ h1 {
 }
 
 a {
-  text-decoration: none;
   color: var(--color);
+}
+
+main a {
   position: relative;
+  text-decoration: none;
   transition: 0.25s ease-in-out;
 }
 
-a:after {
+main a:after {
   content: "";
   display: block;
   position: absolute;
@@ -144,11 +309,11 @@ a:after {
   transition: 0.25s;
 }
 
-a:hover {
+main a:hover {
   color: var(--color-alt);
 }
 
-a:hover:after {
+main a:hover:after {
   top: 0;
   bottom: 0;
   height: 1.25em;

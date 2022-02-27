@@ -1,9 +1,9 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>{{ config.extra.title }}</title>
     <meta name="description" content="{{ config.extra.description }}" />
-
     <meta name="author" content="{{ config.extra.author }}" />
     <meta property="og:title" content="{{ config.extra.title }}" />
     <meta property="og:type" content="website" />
@@ -11,30 +11,33 @@
     <meta property="og:description" content="{{ config.extra.description }}" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe
-
-    }}">
+    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe}}">
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <header>{{ config.extra.author }}</header>
+    <header>
+      <a href="/">{{ config.extra.author }}</a>
+    </header>
+    {% block nav %}
     <aside>
-      <ul>
-        {% for post in section.pages %}
-        <ul>
-          <li>
-            <a href="{{ post.permalink }}">{{ post.title }}</a>
-          </li>
-        </ul>
-        {% endfor %}
-      </ul>
+      {{ macros::nav(items=section.pages) }}
     </aside>
+    {% endblock %}
     <main>
+      {% block content %}
       <h1>{{ section.title }}</h1>
+      <div class="introduction">
       <p>{{ section.content | safe }}</p>
+      </div>
+      {% endblock content %}
     </main>
+    <footer>
+      {% block footer %}
+      <a href="/">.</a>
+      {% endblock %}
+    </footer>
   </body>
 </html>
