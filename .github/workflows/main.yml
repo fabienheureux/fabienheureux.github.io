@@ -9,6 +9,6 @@ jobs:
     - name: Zola deploy
       uses: shalzz/zola-deploy-action@master
       env:
-        PAGES_BRANCH: master
+        PAGES_BRANCH: deploy
         BUILD_DIR: .
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
