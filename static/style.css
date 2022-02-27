@@ -1,6 +1,6 @@
 :root {
   /* --violet: #817c91; Removed because contrast is too low with #fff as the background */
-  --violet: #5A5766
+  --violet: #5A5766;
   --blanc: #ffffff;
   --color: var(--violet);
   --color-alt: var(--blanc);
@@ -32,6 +32,14 @@ body {
   min-height: 100vh;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color: var(--blanc);
+    --color-alt: var(--violet);
+    --background: var(--violet);
+  }
+}
+
 p {
   font-size: 1.5em;
   margin-top: auto;
@@ -61,6 +69,7 @@ main {
   padding: var(--p);
   display: flex;
   flex-direction: column;
+  line-height: 2em;
 }
 
 h1 {
@@ -83,11 +92,11 @@ a:after {
   z-index: -1;
   left: 0;
   right: 0;
-  top: 0.75em;
-  height: 20px;
+  top: 0.8em;
+  height: .6em;
   background: var(--color);
   opacity: 0.3;
-  transition: 0.25s ease-in-out;
+  transition: 0.25s;
 }
 
 a:hover {
@@ -97,6 +106,6 @@ a:hover {
 a:hover:after {
   top: 0;
   bottom: 0;
-  height: 100%;
+  height: 1.25em;
   opacity: 1;
 }
