@@ -1,12 +1,12 @@
 on: push
-name: Build and deploy on push
+name: Build & deploy
 jobs:
   build:
-    name: shalzz/zola-deploy-action
+    name: Deploy fabien.cool
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: shalzz/zola-deploy-action
+    - name: Zola deploy
       uses: shalzz/zola-deploy-action@master
       env:
         PAGES_BRANCH: master
