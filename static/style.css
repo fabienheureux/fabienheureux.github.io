@@ -1,5 +1,6 @@
 :root {
-  --violet: #817c91;
+  /* --violet: #817c91; Removed because contrast is too low with #fff as the background */
+  --violet: #5A5766
   --blanc: #ffffff;
   --color: var(--violet);
   --color-alt: var(--blanc);
