@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bonjour 🎈</title>
-    <meta
-      name="description"
-      content="Fabien Le Frapper's personal website. Code, React, Django, Python, Typescript."
-    />
-    <meta name="author" content="Fabien Le Frapper" />
-    <meta property="og:title" content="Bonjour 🎈" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://fabien.cool" />
-    <meta
-      property="og:description"
-      content="Fabien Le Frapper's personal website. Code, React, Django, Python, Typescript."
-    />
+    <title>{{ config.extra.title }}</title>
+    <meta name="description" content="{{ config.extra.description }}" />
 
+    <meta name="author" content="{{ config.extra.author }}" />
+    <meta property="og:title" content="{{ config.extra.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ config.base_url }}" />
+    <meta property="og:description" content="{{ config.extra.description }}" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <link rel="stylesheet" href="{{ get_url(path="style.css") | safe
-
 
     }}">
     <link
@@ -28,53 +20,21 @@
     />
   </head>
   <body>
-    <header>Fabien Le Frapper</header>
+    <header>{{ config.extra.author }}</header>
     <aside>
       <ul>
+        {% for post in section.pages %}
+        <ul>
+          <li>
+            <a href="{{ post.permalink }}">{{ post.title }}</a>
+          </li>
+        </ul>
+        {% endfor %}
       </ul>
     </aside>
     <main>
-      <h1>Bonjour.</h1>
-      <p>
-        I am a French <i>fullstack</i> web <strong>developper</strong>. I write
-        some code since I discovered the <i>view source</i> feature of Internet
-        Explorer when I was a kid.
-        <br />
-        <br />
-        Using Python and JavaScript, I try to help companies, non-profit, NGOs
-        to ship quality software.
-        <br />
-        I currently work full-time with
-        <a href="https://letabli.io">L'établi</a> et
-        <a href="https://astrolabe.coop">L'astrolabe</a>.
-        <br />
-        <br />
-        I contribute to
-        <a
-          href="https://github.com/wagtail/wagtail"
-          target="_blank"
-          rel="noreferrer noopener"
-          >various</a
-        >
-        <a
-          href="https://github.com/GrappleGQL/wagtail-grapple"
-          target="_blank"
-          rel="noreferrer noopener"
-          >open source</a
-        >
-        <a
-          href="https://github.com/vercel/next.js/"
-          target="_blank"
-          rel="noreferrer noopener"
-          >projects</a
-        >.
-        <br />
-        You can find some of my code on
-        <a href="https://github.com/fabienheureux">github</a>.
-        <br />
-        <br />
-        Feel free to <a href="mailto:contact@fabienlefrapper.me">reach out</a>
-      </p>
+      <h1>{{ section.title }}</h1>
+      <p>{{ section.content | safe }}</p>
     </main>
   </body>
 </html>
