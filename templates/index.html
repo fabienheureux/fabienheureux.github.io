@@ -11,9 +11,11 @@
     <meta property="og:description" content="{{ config.extra.description }}" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe}}">
+    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe
+    }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=IBM+Plex+Sans:wght@300,400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -30,7 +32,7 @@
       {% block content %}
       <h1>{{ section.title }}</h1>
       <div class="introduction">
-      <p>{{ section.content | safe }}</p>
+        <p>{{ section.content | safe }}</p>
       </div>
       {% endblock content %}
     </main>

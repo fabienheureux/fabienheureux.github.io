@@ -16,3 +16,7 @@ build_search_index = false
 title = "Bonjour 🎈"
 description = "Fabien Le Frapper's personal website. Code, React, Django, Python, Typescript."
 author = "Fabien Le Frapper"
+
+[markdown]
+highlight_code = true
+
