@@ -156,10 +156,17 @@ body {
   }
 }
 
+.main ul {
+  line-height: 1em;
+}
+
+.main p {
+  line-height: 1.5em;
+}
+
 main p,
 main ul {
   font-size: 1.25em;
-  line-height: 1.5em;
   margin-bottom: 1em;
 }
 
