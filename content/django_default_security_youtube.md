@@ -37,4 +37,4 @@ Here is the policy description:
 
 > Send the origin, path, and query string for same-origin requests. Don't send the Referer header for cross-origin requests.
 
-I have not yet a clear explanation about why YouTube blocks embedding videos with the `same-origin` policy but I assume it is because embedding copyrighted content without telling YouTube about where (in which country) it is displayed would allow bypassing geographical restrictions.
+I have not yet a clear explanation about why YouTube blocks embedding videos with the `same-origin` policy but I assume it is because embedding copyrighted content without telling YouTube about where - in which country - it is displayed would allow bypassing geographical restrictions.
