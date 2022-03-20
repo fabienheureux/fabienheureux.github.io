@@ -1,5 +1,5 @@
 +++
-title = "Embedded YouTube videos and Django security middleware"
+title = "YouTube & Django security middleware"
 date = 2022-03-20
 description = "Embedding videos in Django templates can lead to an error from YouTube: _This video is unavailable_. Let's see what causes it and how it can be fixed."
 +++
