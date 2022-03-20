@@ -179,6 +179,13 @@ pre {
   overflow: auto;
 }
 
+img {
+  border: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1em auto 1em 0;
+}
+
 body {
   font-family: "IBM Plex Sans", sans-serif;
   margin: 0;
