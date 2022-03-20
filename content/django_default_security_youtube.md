@@ -1,7 +1,7 @@
 +++
 title = "YouTube & Django security middleware"
 date = 2022-03-20
-description = "Embedding videos in Django templates can lead to an error from YouTube: _This video is unavailable_. Let's see what causes it and how it can be fixed."
+description = "Embedding videos in Django templates can lead to an error from YouTube: This video is unavailable. Let's see what causes it and how it can be fixed."
 +++
 
 On a recent Wagtail project, I had to embed YouTube music videos.    
