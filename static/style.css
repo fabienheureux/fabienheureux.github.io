@@ -176,6 +176,12 @@ a {
   color: var(--color);
 }
 
+blockquote {
+  border-left: 1px solid var(--color);
+  font-style: italic;
+  padding-left: 1em;
+}
+
 body {
   font-family: "IBM Plex Sans", sans-serif;
   margin: 0;
