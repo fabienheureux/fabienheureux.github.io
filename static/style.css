@@ -4,8 +4,10 @@
 :root {
   /* --violet: #817c91; Removed because contrast is too low with #fff as the background */
   --violet: #5a5766;
+  --pink: #c97d8f;
   --blanc: #ffffff;
   --color: var(--violet);
+  --color-secondary: var(--pink);
   --color-alt: var(--blanc);
   --background: var(--blanc);
   --border: 1px solid var(--color);
@@ -174,6 +176,13 @@ h6 {
 
 a {
   color: var(--color);
+  text-decoration: underline;
+  text-decoration-color: var(--color-secondary);
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-decoration-style: double;
 }
 
 blockquote {
@@ -272,37 +281,6 @@ main li {
   margin: 1em 0 2em 0;
 }
 
-.introduction a {
-  position: relative;
-  text-decoration: none;
-  transition: 0.25s ease-in-out;
-}
-
-.introduction a:after {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  top: 0.8em;
-  height: 0.6em;
-  background: var(--color);
-  opacity: 0.3;
-  transition: 0.25s;
-}
-
-.introduction a:hover {
-  color: var(--color-alt);
-}
-
-.introduction a:hover:after {
-  top: 0;
-  bottom: 0;
-  height: 1.25em;
-  opacity: 1;
-}
-
 .introduction p,
 .introduction ul {
   font-size: 1.5em;
@@ -398,12 +376,4 @@ article p,
 article pre,
 article hr {
   max-width: 800px;
-}
-
-p a {
-  text-decoration: underline;
-}
-
-p a:hover {
-  text-decoration: none;
 }
