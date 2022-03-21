@@ -268,13 +268,17 @@ main li {
   margin: 0.5em 0 0 0;
 }
 
-main *:not(article) a {
+.introduction {
+  margin: 1em 0 2em 0;
+}
+
+.introduction a {
   position: relative;
   text-decoration: none;
   transition: 0.25s ease-in-out;
 }
 
-main *:not(article) a:after {
+.introduction a:after {
   content: "";
   display: block;
   position: absolute;
@@ -288,19 +292,15 @@ main *:not(article) a:after {
   transition: 0.25s;
 }
 
-main *:not(article) a:hover {
+.introduction a:hover {
   color: var(--color-alt);
 }
 
-main *:not(article) a:hover:after {
+.introduction a:hover:after {
   top: 0;
   bottom: 0;
   height: 1.25em;
   opacity: 1;
-}
-
-.introduction {
-  margin: 1em 0 2em 0;
 }
 
 .introduction p,
@@ -400,14 +400,10 @@ article hr {
   max-width: 800px;
 }
 
-article a {
+p a {
   text-decoration: underline;
 }
 
-article a:hover {
+p a:hover {
   text-decoration: none;
-  border-radius: 4px;
-  background: var(--color);
-  color: var(--background);
-  transition: 0.25s;
 }
