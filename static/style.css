@@ -339,13 +339,14 @@ li {
   list-style: none;
 }
 
-nav span {
-  width: 20px;
-  height: 1px;
-  display: inline-block;
-  margin: 0 10px;
-  background: var(--color);
+nav a {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  text-decoration-color: currentColor;
 }
+
+
 
 footer {
   grid-column: aside / right;

@@ -3,7 +3,10 @@
   <ul>
     {% for item in items %}
     <li>
-      <a href="{{ item.permalink }}">{{ item.date }} <span></span> {{ item.title }}</a>
+      <a href="{{ item.permalink }}">
+        <span>{{ item.title }}</span>
+        <small>{{ item.date }}</small>
+      </a>
     </li>
     {% endfor %}
   </ul>
