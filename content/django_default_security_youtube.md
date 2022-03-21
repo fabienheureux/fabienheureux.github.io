@@ -36,8 +36,8 @@ I looked at the `Django Security Middleware` documentation and various [security
 
 After toggling settings one by one, I found the culprit: [`SECURE_REFERER_POLICY`](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-SECURE_REFERRER_POLICY).
 
-This setting relates to the [`Referer` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) which gives information about the page making a request (i.e. the request's origin).
-Moreover, this setting directly interfaces the [`Referrer-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) which controls how much information the `Referer` HTTP header contains.
+This setting relates to the [Referer HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) which gives information about the page making a request (i.e. the request's origin).
+Moreover, this setting directly interfaces the [Referrer-Policy HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) which controls how much information the `Referer` HTTP header contains.
 
 The default value for Django is `same-origin`, which sends information only for request on the same domain. In this case, a request to `youtube.com` won't send any `Referer` HTTP header.
 
