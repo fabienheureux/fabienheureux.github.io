@@ -218,6 +218,18 @@ img {
   margin: 1em auto 1em 0;
 }
 
+hr {
+  border: none;
+  border-bottom: var(--border);
+}
+
+code {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
 /*
   Blocks styles
 */
@@ -256,13 +268,13 @@ main li {
   margin: 0.5em 0 0 0;
 }
 
-main a {
+main *:not(article) a {
   position: relative;
   text-decoration: none;
   transition: 0.25s ease-in-out;
 }
 
-main a:after {
+main *:not(article) a:after {
   content: "";
   display: block;
   position: absolute;
@@ -276,11 +288,11 @@ main a:after {
   transition: 0.25s;
 }
 
-main a:hover {
+main *:not(article) a:hover {
   color: var(--color-alt);
 }
 
-main a:hover:after {
+main *:not(article) a:hover:after {
   top: 0;
   bottom: 0;
   height: 1.25em;
@@ -363,6 +375,7 @@ footer {
   align-items: center;
   font-size: 2em;
 }
+
 @media (max-width: 768px) {
   footer {
     border-top: var(--border);
@@ -382,6 +395,19 @@ footer a {
 }
 
 article p,
-article pre {
+article pre,
+article hr {
   max-width: 800px;
+}
+
+article a {
+  text-decoration: underline;
+}
+
+article a:hover {
+  text-decoration: none;
+  border-radius: 4px;
+  background: var(--color);
+  color: var(--background);
+  transition: 0.25s;
 }
