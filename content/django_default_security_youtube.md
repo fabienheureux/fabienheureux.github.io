@@ -41,25 +41,6 @@ Moreover, this setting directly interfaces the [`Referrer-Policy` HTTP header](h
 
 The default value for Django is `same-origin`, which sends information only for request on the same domain. In this case, a request to `youtube.com` won't send any `Referer` HTTP header.
 
-<>
-add screenshot of a request confirming this
-
-example here, look at the network requests
-https://jsbin.com/koconuvovi/edit?html,output
-</>
-
-<>
-Something interesting, [Mozilla reports](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin) that `strict-origin-when-cross-origin` is the default. _Not_ setting any header defaults to `strict-origin-when-cross-origin`.
-
-TODO: explain what `strict-origin-when-cross-origin` does.
-
-avec strict-
-https://jsbin.com/debevijesi/1/edit?html,output
-&
-sans rien
-https://jsbin.com/zojibigade/1/edit?html,output
-</>
-
 Youtube requires the `Referer` HTTP header set when embedding some videos.
 
 I ended up setting the following in my configuration:
