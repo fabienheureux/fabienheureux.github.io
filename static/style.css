@@ -239,6 +239,7 @@ code {
   background: rgba(0, 0, 0, 0.1);
   padding: 0.25rem 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
 }
 
 /*
