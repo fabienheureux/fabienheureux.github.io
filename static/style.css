@@ -231,7 +231,7 @@ hr {
   border: none;
   border-bottom: var(--border);
   width: 50%;
-  margin: var(--p) auto;
+  margin: var(--p) auto var(--p) 0;
 }
 
 p code {
