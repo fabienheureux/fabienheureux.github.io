@@ -1,40 +1,79 @@
 +++
 title = "YouTube & Django security middleware"
 date = 2022-03-20
-description = "Embedding videos in Django templates can lead to an error from YouTube. Let's see what causes it and how it can be fixed."
+description = "Django's defaults security settings can prevent from embedding Youtube videos."
 +++
 
-On a recent Wagtail project, I had to embed YouTube music videos.  
-A random issue occurred with some YouTube videos being unavailable when embedding through wagtail built-in [embed feature](https://docs.wagtail.org/en/stable/advanced_topics/embeds.html), which is based on oEmbed specification. Nothing fancy.
+## TL;DR
 
-The problem, as detailed [in this issue](https://github.com/wagtail/wagtail/issues/8068]), manifests itself with a _currently unavailable_ message displayed instead of the YouTube player.  
+When embedding Youtube videos in a Django project, use:
+
+```python
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+```
+
+Want to know more? Read on.
+
+---
+
 ![image](https://user-images.githubusercontent.com/1702255/156556134-f519f66f-d731-4fd7-b79d-bc6da7ace48f.png)
 
-It can be easily reproduced by opening [this link](https://www.youtube.com/embed/DIhWBhf1lPY?feature=oembed&autoplay=1) directly in a new browser window.
+[Embed link](https://www.youtube.com/embed/DIhWBhf1lPY?feature=oembed&autoplay=1)
 
-When looking for an explanation, it appeared that a similar issue occurred to [people trying to embed copyrighted content](https://support.google.com/youtube/thread/17866150/unavailable-video-due-to-copyright?hl=en) or videos for which the embedding was disabled.  
-When checking with the client, they confirmed that the content was indeed copyrighted but embedding was allowed.  
-When trying to reproduce the issue in a codepen, the same video displayed properly.
+On a recent [Wagtail](https://wagtail.org/) project, I embedded YouTube music videos using the [embed feature](https://docs.wagtail.org/en/stable/advanced_topics/embeds.html) (based on [oEmbed specification](https://oembed.com/))
 
-Looking at my project settings, I did not see anything that could cause such an issue except the Django security middleware, that I tried disabling.  
-The issue was immediately gone.
+Others had reported this issue before for [copyrighted content](https://support.google.com/youtube/thread/17866150/unavailable-video-due-to-copyright?hl=en) or video without embedding allowed. The content I was trying to embed is definitely copyrighted and with embedding allowed.
 
-The project - based on Wagtail CMS - has **Django default security middleware applied**, that are set in any Wagtail project initialised through the official CLI.
+In a [Codepen](https://codepen.io/fabienheureux/pen/wvPRxed) I could display the video properly.
 
-Curious about [what this middleware does exactly](https://docs.djangoproject.com/en/4.0/ref/middleware/#module-django.middleware.security), I looked at the documentation that explains that it sets various security headers recommended for most setups.  
-Each header value can be individually customized.  
-So I started disabling every one of them one after another, the culprit was quickly found: [the Referer header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer).  
-[This policy](https://docs.djangoproject.com/en/4.0/ref/middleware/#referrer-policy) can be customised through the [`SECURE_REFERER_POLICY`](https://docs.djangoproject.com/en/4.0/ref/settings/#secure-referrer-policy) setting.  
-I solved the issue by using this value:
+I looked at the project settings and couldn't see any causes expect from the [`Django Security Middleware`](https://docs.djangoproject.com/en/4.0/ref/middleware/#module-django.middleware.security).
+I turned it off and I could see the video :tada:.
+It seemed that some security settings didn't let the browser load the video.
+
+Wagtail applies the default configuration from `Django Security Middleware`, it's the standard way of bootstrapping a new project through the [official `wagtail start` command](https://docs.wagtail.org/en/stable/getting_started/tutorial.html#generate-your-site).
+
+I looked at the `Django Security Middleware` documentation and various [security settings](https://docs.djangoproject.com/en/4.0/ref/middleware/#django.middleware.security.SecurityMiddleware) I could tweak.
+
+After toggling settings one by one, I found the culprit: [`SECURE_REFERER_POLICY`](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-SECURE_REFERRER_POLICY).
+
+This setting relates to the [`Referer` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) which gives information about the page making a request (i.e. the request's origin).
+Moreover, this setting directly interfaces the [`Referrer-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) which controls how much information the `Referer` HTTP header contains.
+
+The default value for Django is `same-origin`, which sends information only for request on the same domain. In this case, a request to `youtube.com` won't send any `Referer` HTTP header.
+
+<>
+add screenshot of a request confirming this
+
+example here, look at the network requests
+https://jsbin.com/koconuvovi/edit?html,output
+</>
+
+<>
+Something interesting, [Mozilla reports](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin) that `strict-origin-when-cross-origin` is the default. _Not_ setting any header defaults to `strict-origin-when-cross-origin`.
+
+TODO: explain what `strict-origin-when-cross-origin` does.
+
+avec strict-
+https://jsbin.com/debevijesi/1/edit?html,output
+&
+sans rien
+https://jsbin.com/zojibigade/1/edit?html,output
+</>
+
+Youtube requires the `Referer` HTTP header set when embedding some videos.
+
+I ended up setting the following in my configuration:
 
 ```python
 # settings/base.py
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 ```
 
-The important thing about the policy you choose is that it differs in term of restrictions from the default `same-origin` set by Django security middleware.  
-Here is the policy description:
+Some possible reasons of why Youtube requires the `Referer` HTTP header:
 
-> Send the origin, path, and query string for same-origin requests. Don't send the Referer header for cross-origin requests.
+- Youtube restricts Copyrighted content to some countries, it checks the origin website before sending the content.
+- It's possible to [restrict the embedding](https://support.google.com/youtube/answer/6301625?hl=en) of videos. This uses the `Referer` HTTP header to filter which websites can embed content.
 
-I have not yet a clear explanation about why YouTube blocks embedding videos with the `same-origin` policy but I assume it is because embedding copyrighted content without telling YouTube about where - in which country - it is displayed would allow bypassing geographical restrictions.
+---
+
+Thanks to [nobe4](https://nobe4.fr/) for the ~rewrite~ proofreading.
