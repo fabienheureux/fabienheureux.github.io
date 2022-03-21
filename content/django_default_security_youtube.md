@@ -57,4 +57,4 @@ Some possible reasons of why Youtube requires the `Referer` HTTP header:
 
 ---
 
-Thanks to [nobe4](https://nobe4.fr/) for the ~~rewrite~~ proofreading.
+Thanks to [nobe4](https://github.com/nobe4) for the ~~rewrite~~ proofreading.
