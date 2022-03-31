@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ config.extra.title }}</title>
+    <title>{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}</title>
     <meta name="description" content="{{ config.extra.description }}" />
     <meta name="author" content="{{ config.extra.author }}" />
     <meta property="og:title" content="{{ config.extra.title }}" />

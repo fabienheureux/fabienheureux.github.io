@@ -13,8 +13,8 @@ build_search_index = false
 
 [extra]
 # Put all your custom variables here
-title = "Bonjour 🎈"
-description = "Fabien Le Frapper's personal website. Code, React, Django, Python, Typescript."
+title = "Fabien Le Frapper"
+description = "Bonjour 🎈. This is my personal website. Code, React, Django, Python, Typescript."
 author = "Fabien Le Frapper"
 
 [markdown]
