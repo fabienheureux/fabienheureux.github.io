@@ -3,12 +3,17 @@
 <html>
   <head>
     <title>{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}</title>
-    <meta name="description" content="{{ config.extra.description }}" />
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}" />
     <meta name="author" content="{{ config.extra.author }}" />
-    <meta property="og:title" content="{{ config.extra.title }}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ config.base_url }}" />
-    <meta property="og:description" content="{{ config.extra.description }}" />
+    <meta property="og:url" content="{{ current_url }}" />
+    <meta property="og:description" content="{% if page.description %}{{ page.description }} {% else %}{{ config.extra.description }}{% endif %}" />
+    <meta name="twitter:site" content="@fabienheureux">
+    <meta name="twitter:creator" content="@fabienheureux">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}">
+    <meta name="twitter:card" content="summary">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ get_url(path="style.css") | safe
