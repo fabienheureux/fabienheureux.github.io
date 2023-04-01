@@ -2,36 +2,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}" />
+    <title>
+      {% if page.title %}{{ page.title }} ∞{% endif %} {{ config.extra.title }}
+    </title>
+    <meta
+      name="description"
+      content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}"
+    />
     <meta name="author" content="{{ config.extra.author }}" />
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}">
+    <meta
+      property="og:title"
+      content="{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ current_url }}" />
-    <meta property="og:description" content="{% if page.description %}{{ page.description }} {% else %}{{ config.extra.description }}{% endif %}" />
-    <meta name="twitter:site" content="@fabienheureux">
-    <meta name="twitter:creator" content="@fabienheureux">
-    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}">
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}">
-    <meta name="twitter:card" content="summary">
+    <meta
+      property="og:description"
+      content="{% if page.description %}{{ page.description }} {% else %}{{ config.extra.description }}{% endif %}"
+    />
+    <meta name="twitter:site" content="@fabienheureux" />
+    <meta name="twitter:creator" content="@fabienheureux" />
+    <meta
+      name="twitter:description"
+      content="{% if page.description %}{{ page.description }}{% else %}{{ config.extra.description }}{% endif %}"
+    />
+    <meta
+      name="twitter:title"
+      content="{% if page.title %}{{ page.title }} ∞{% endif %}  {{ config.extra.title }}"
+    />
+    <meta name="twitter:card" content="summary" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe
-    }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <script
+      defer
+      data-domain="fabien.cool"
+      src="https://stats.fabien.cool/js/script.js"
+    ></script>
   </head>
   <body>
     <header>
       <a href="/">{{ config.extra.author }}</a>
     </header>
     {% block nav %}
-    <aside>
-      {{ macros::nav(items=section.pages) }}
-    </aside>
+    <aside>{{ macros::nav(items=section.pages) }}</aside>
     {% endblock %}
     <main>
       {% block content %}
