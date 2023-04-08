@@ -20,7 +20,9 @@
   /* Sizes */
   --header-height: 100px;
   --aside-width: 300px;
+
 }
+
 
 @media (min-width: 1200px) {
   :root {
@@ -41,6 +43,17 @@
     --background: var(--violet);
   }
 }
+
+/* 
+  View Transition API properties
+  - https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API 
+  - https://developer.chrome.com/docs/web-platform/view-transitions/
+*/
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: .25s;
+}
+
 
 /*
   Reset - Use a more-intuitive box-sizing model.
