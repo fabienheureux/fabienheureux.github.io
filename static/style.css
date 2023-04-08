@@ -221,6 +221,7 @@ a:not(.button)[target="_blank"]:hover::after {
 
 a:focus {
   outline: thick double var(--color-secondary);
+  border-radius: var(--border-radius);
   text-decoration: none;
 }
 
