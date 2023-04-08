@@ -388,6 +388,9 @@ ul,
 ul li {
   margin: 0;
   padding: 0;
+}
+
+ul li {
   list-style: none;
 }
 
@@ -472,12 +475,13 @@ article h1 {
 
 .button {
   background: var(--color-secondary);
-  color: var(--background);
+  color: var(--color);
   font-weight: normal;
   padding: .5rem;
   border-radius: var(--border-radius);
   text-decoration: none;
   transition: .1s;
+  cursor: pointer;
 }
 
 .button:hover {
