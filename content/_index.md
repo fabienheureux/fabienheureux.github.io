@@ -12,8 +12,6 @@ I contribute to [various](https://github.com/wagtail/wagtail) [open source](http
 
 ---
 
-I work remotely, feel free to [reach out](mailto:contact@fabienlefrapper.me) if you need help building a project from scratch or improving an existing codebase.
-
 I recently worked on :
 
 - [SPPNaut](https://beta.gouv.fr/startups/sppnaut.html): geocoding data from the French hydrographic service.
@@ -21,3 +19,7 @@ I recently worked on :
 - Visoconso : ingest and aggregate data from gaz and electricity providers in a single interface to easily visualise energy consumptions of public buildings.
 - [Terre de Liens](https://terredeliens.org): migrate an old Spip website to a Wagtail connected to a SalesForce database.
 - [RSF](https://rsf.org/): technical consulting for the rebuild of the website of Reporters Without Borders.
+
+If you need help building a project from scratch or improving an existing codebase :
+
+<a class="button" href="mailto:contact@fabienlefrapper.me">Let's meet</a>
