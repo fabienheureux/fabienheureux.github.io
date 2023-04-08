@@ -14,7 +14,7 @@ build_search_index = false
 [extra]
 # Put all your custom variables here
 title = "Fabien Le Frapper"
-description = "Bonjour 🎈. This is my personal website. Code, React, Django, Python, Typescript."
+description = "Bonjour 🎈. This is my personal website. Code, Wagtail, Django, Python, JavaScript."
 author = "Fabien Le Frapper"
 
 [markdown]

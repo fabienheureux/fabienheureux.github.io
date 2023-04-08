@@ -32,13 +32,9 @@
     />
     <meta name="twitter:card" content="summary" />
     <meta charset="utf-8" />
+    <meta name="view-transition" content="same-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
     <script
       defer
       data-domain="fabien.cool"
@@ -46,8 +42,8 @@
     ></script>
   </head>
   <body>
-    <header>
-      <a href="/">{{ config.extra.author }}</a>
+    <header role="navigation" aria-label="Go back to homepage">
+      <a href="/" aria-label="Go back to the homepage of the website">{{ config.extra.author }}</a>
     </header>
     {% block nav %}
     <aside>{{ macros::nav(items=section.pages) }}</aside>
@@ -65,5 +61,6 @@
       <a href="/">.</a>
       {% endblock %}
     </footer>
+    <script src="{{ get_url(path="i-promise-it-is-only-a-few-lines.js") | safe }}"></script>
   </body>
 </html>

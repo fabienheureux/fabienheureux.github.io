@@ -1,5 +1,7 @@
 +++
 title = "YouTube & Django security middleware"
+order = 2
+sort_by = "order"
 date = 2022-03-20
 description = "Django's defaults security settings can prevent from embedding Youtube videos."
 +++

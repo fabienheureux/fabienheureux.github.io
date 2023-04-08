@@ -5,6 +5,7 @@
   /* --violet: #817c91; Removed because contrast is too low with #fff as the background */
   --violet: #5a5766;
   --pink: #c97d8f;
+  --pink: #f25c80;
   --blanc: #ffffff;
   --color: var(--violet);
   --color-secondary: var(--pink);
@@ -164,8 +165,16 @@ h5,
 h6 {
   font-weight: normal;
   text-transform: uppercase;
-  margin: 1rem 0;
+  margin: 2rem 0 1rem;
   line-height: 1em;
+}
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {
@@ -178,11 +187,25 @@ a {
   color: var(--color);
   text-decoration: underline;
   text-decoration-color: var(--color-secondary);
+  text-underline-offset: .25rem;
 }
 
 a:hover {
   color: var(--color-secondary);
   text-decoration-style: double;
+}
+
+a[target="_blank"]:hover::after {
+  content: " ⇱";
+  display: inline-block;
+  transform: scaleX(-1);
+  font-size: .75em;
+  margin-left: .25rem;
+  vertical-align: top;
+}
+
+a:focus {
+  outline: thick double var(--color-secondary);
 }
 
 blockquote {
@@ -192,7 +215,10 @@ blockquote {
 }
 
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+  font-weight: 300;
   margin: 0;
   color: var(--color);
   background: var(--background);
@@ -210,7 +236,7 @@ body {
 }
 
 pre {
-  font-family: "Fira Code", monospace;
+  font-family: 'San Francisco Mono', 'Consolas', 'Roboto Mono', monospace;
   font-size: 1.25em;
   line-height: 1.175em;
   padding: calc(var(--p) / 2);
@@ -230,7 +256,8 @@ img {
 hr {
   border: none;
   border-bottom: var(--border);
-  width: 50%;
+  border-width: 2px;
+  width: 30vw;
   margin: var(--p) auto var(--p) 0;
 }
 
@@ -263,21 +290,23 @@ main {
 }
 
 main p,
-main ul {
+main ul,
+main ol {
   font-size: 1.25em;
   margin-bottom: 1em;
 }
 
-main li:before {
-  content: "_ ";
-  padding-right: 0.5em;
+main ul li:before {
+  content: "☞";
+  padding-right: 0.5rem;
 }
 
-main ul {
-  margin: 0 auto 1em 0;
+main ul, 
+main ol {
+  margin: 0 auto 1rem 0;
 }
 main li {
-  margin: 0.5em 0 0 0;
+  margin: 0.5rem 0 0 0;
 }
 
 .introduction {
@@ -333,20 +362,21 @@ aside:empty {
 }
 
 ul,
-li {
+ul li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 nav a {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1em;
   text-decoration-color: currentColor;
 }
 
-
+nav li {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
 
 footer {
   grid-column: aside / right;
@@ -378,6 +408,26 @@ footer a {
 
 article p,
 article pre,
-article hr {
-  max-width: 800px;
+article hr, 
+p, li {
+  max-width: 65ch; 
+}
+
+
+article h1 {
+  max-width: 30ch; 
+  font-size: 3em;
+}
+
+
+::selection {
+  background: var(--color-secondary);
+  color: var(--color);
+}
+
+
+.footnote-definition {
+  font-size: .8rem;
+  display: flex;
+  flex-direction: row;
 }
