@@ -1,7 +1,5 @@
 +++
 title = "Hello world"
-sort_by = "order"
-order = 1
 date = 2022-02-27
 description = "This is the beginning of my blog. I will write about technology, art, culture, anything I would like to share with the world."
 +++
