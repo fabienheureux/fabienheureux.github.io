@@ -369,6 +369,11 @@ aside:empty {
     padding-right: calc(var(--p) / 4);
     padding-top: var(--p);
   }
+  aside nav {
+    position: sticky;
+    top: 1rem;
+
+  }
 }
 
 @media (max-width: 768px) {
