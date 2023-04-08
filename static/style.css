@@ -306,7 +306,7 @@ main p,
 main ul,
 main ol {
   font-size: 1.25em;
-  margin-bottom: 1em;
+  margin: 1rem 0 .25rem 0;
 }
 
 main ul li:before {
@@ -421,9 +421,17 @@ footer a {
 
 article p,
 article pre,
-article hr, 
 p, li {
   max-width: 65ch; 
+}
+
+.footnote-definition p {
+  margin: 0
+}
+
+.footnote-definition-label {
+  padding-right: .5rem;
+  display: inline-block;
 }
 
 

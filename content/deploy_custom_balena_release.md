@@ -1,7 +1,5 @@
 +++
 title = "IoT : How I added AirPlay 2 support to BalenaSound on a Sunday Afternoon"
-sort_by = "order"
-order = 3
 date = 2023-01-25
 description = "I needed AirPlay 2 on an existing Raspberry Pi/BalenaOS based setup. I had to understand how BalenaOS works and how I could contribute to an existing Balena project without any prior IoT knowledge. Let's see how."
 +++
