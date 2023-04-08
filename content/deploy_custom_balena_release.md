@@ -1,5 +1,5 @@
 +++
-title = "IoT : How I added AirPlay 2 support to my Balena Sound on a Sunday Afternoon"
+title = "IoT : How I added AirPlay 2 support to BalenaSound on a Sunday Afternoon"
 sort_by = "order"
 order = 3
 date = 2023-01-25
