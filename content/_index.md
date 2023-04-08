@@ -5,7 +5,7 @@ title = "BONJOUR."
 I am a _fullstack_ engineer living in France.
 I write some code since I discovered the _view source_ feature of Internet
 Explorer when I was a kid.  
-Using Python and JavaScript, I now help public sector, non-profit, NGOs shpping quality software for the public interest, mostly by writing open-source code.
+Using Python and JavaScript, I now help public sector, non-profit, NGOs shipping quality software for the public interest, mostly by writing open-source code.
 
 I contribute to [various](https://github.com/wagtail/wagtail) [open source](https://github.com/GrappleGQL/wagtail-grapple) [projects](https://github.com/vercel/next.js/). You can find some of my code on [github](https://github.com/fabienheureux).
 
