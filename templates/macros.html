@@ -1,12 +1,12 @@
 {% macro nav(items) %}
-<nav aria-label="Main">
+<nav aria-label="Main menu" role="navigation">
   <ul>
     {% for item in items %}
     <li>
       <a href="{{ item.permalink }}">
         <span>{{ item.title }}</span>
-        <small>{{ item.date }}</small>
       </a>
+      <small>{{ item.date }}</small>
     </li>
     {% endfor %}
   </ul>
