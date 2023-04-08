@@ -20,6 +20,6 @@ I recently worked on :
 - [Terre de Liens](https://terredeliens.org): migrate an old Spip website to a Wagtail connected to a SalesForce database.
 - [RSF](https://rsf.org/): technical consulting for the rebuild of the website of Reporters Without Borders.
 
-If you need help building a project from scratch or improving an existing codebase :
+If you need help building a project from scratch or improving an existing codebase:
 
 <a class="button" href="mailto:contact@fabienlefrapper.me">Let's meet</a>
