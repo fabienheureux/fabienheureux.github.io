@@ -197,6 +197,10 @@ h6:first-child {
   }
 }
 
+h1 {
+  display: flex;
+}
+
 a:not(.button) {
   color: var(--color);
   text-decoration: underline;
@@ -349,6 +353,12 @@ header {
 
 header a {
   text-decoration: none;
+}
+
+header svg {
+  display: inline-block;
+  width: 5rem;
+  fill: currentColor;
 }
 
 @media (max-width: 768px) {
