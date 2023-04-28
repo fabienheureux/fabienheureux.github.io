@@ -21,7 +21,6 @@
   /* Sizes */
   --header-height: 100px;
   --aside-width: 300px;
-
 }
 
 
@@ -484,8 +483,8 @@ article h1 {
 
 
 .button {
-  background: var(--color-secondary);
-  color: var(--color);
+  background: var(--pink);
+  color: var(--blanc);
   font-weight: normal;
   padding: .5rem;
   border-radius: var(--border-radius);
