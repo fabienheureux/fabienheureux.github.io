@@ -1,0 +1,8 @@
+name: Build & deploy
+on: [push]
+
+jobs:
+  test:
+    runs-on: docker
+    steps:
+      - run: echo All Good
