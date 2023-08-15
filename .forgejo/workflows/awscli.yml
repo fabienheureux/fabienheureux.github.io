@@ -1,0 +1,21 @@
+name: test-action
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: docker
+    name: Test awscli 
+    env:
+      AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v3
+      - run: |
+          ls ${{ github.workspace }}
+      # - name: Install AWS CLI 
+      #   id: install-aws-cli 
+      #   run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"; unzip awscliv2.zip; ./aws/install
