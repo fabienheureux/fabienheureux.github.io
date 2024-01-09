@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://fabien.cool/</loc>
+    </url>
+    <url>
+        <loc>https://fabien.cool/deploy-custom-balena-release/</loc>
+        <lastmod>2023-01-25</lastmod>
+    </url>
+    <url>
+        <loc>https://fabien.cool/django-default-security-youtube/</loc>
+        <lastmod>2022-03-20</lastmod>
+    </url>
+    <url>
+        <loc>https://fabien.cool/gaggiuino/</loc>
+        <lastmod>2024-01-04</lastmod>
+    </url>
+    <url>
+        <loc>https://fabien.cool/hello-world/</loc>
+        <lastmod>2022-02-27</lastmod>
+    </url>
+</urlset>
