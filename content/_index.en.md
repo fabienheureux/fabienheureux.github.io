@@ -17,8 +17,8 @@ On my free time, I am also part of a music festival called [Les Nuits Soniques](
 
 I recently worked on :
 
-- [Longue vie aux objets](https://longuevieauxobjets.ademe.fr) : développement d'outils - notamment cartographiques et basés sur la donnée - afin d'accélérer l'économie circulaire
-- [APiLos](https://beta.gouv.fr/startups/apilos.html) : Faciliter l'accès aux logements sociaux par la simplification des conventions.
+- [Longue vie aux objets](https://longuevieauxobjets.ademe.fr) : tools based on map and data aiming at improving circular economy in France
+- [APiLos](https://beta.gouv.fr/startups/apilos.html) : Ease access to social housing by simplifying paperwork automation
 - [SPPNaut](https://beta.gouv.fr/startups/sppnaut.html): geocoding data from the French hydrographic service.
 - [Terre de Liens](https://terredeliens.org): migrate an old Spip website to a new Wagtail website connected to a SalesForce database.
 - [RSF](https://rsf.org/): technical consulting for the rebuild of the website of Reporters Without Borders.
