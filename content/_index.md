@@ -3,23 +3,27 @@ title = "BONJOUR."
 sort_by = "date"
 +++
 
-I am a _fullstack_ engineer living in France.
-I write some code since I discovered the _view source_ feature of Internet
-Explorer when I was a kid.  
-Using Python and JavaScript, I now help public sector, non-profit, NGOs shipping quality software for the public interest, mostly by writing open-source code.
+Je suis développeur, vis et travaille en Bretagne.
 
-I contribute to [various](https://github.com/wagtail/wagtail) [open source](https://github.com/GrappleGQL/wagtail-grapple) [projects](https://github.com/vercel/next.js/). You can find some of my code on [github](https://github.com/fabienheureux).
+J'écris du code depuis que j'ai découvert la fonctionnalité _lire la source_ de Internet Explorer, lorsque j'étais enfant.
+
+À l'aide de Python et JavaScript, j'accompagne le secteur publics, des associations, ONGs, en concevant des logiciels de qualité, dans l'intérêt général.
+Le code que j'écris est principalement open-source.
+
+Je contribue à [divers](https://github.com/wagtail/wagtail) [projets](https://github.com/GrappleGQL/wagtail-grapple) [open-source](https://github.com/vercel/next.js/). You can find some of my code on [github](https://github.com/fabienheureux).
+
+J'écris en français principalement pour parler de musique, et en anglais de code.
 
 ---
 
-I recently worked on :
+J'ai travaillé récemment sur :
 
-- [SPPNaut](https://beta.gouv.fr/startups/sppnaut.html): geocoding data from the French hydrographic service.
-- [WWOOF](https://asso.wwoof.fr): migrate from a classic wordpress website to a headless approach, with a backend connected to the main WWOOFing web application to display news articles on its homepage.
-- Visoconso : ingest and aggregate data from gaz and electricity providers in a single interface to easily visualise energy consumptions of public buildings.
-- [Terre de Liens](https://terredeliens.org): migrate an old Spip website to a new Wagtail website connected to a SalesForce database.
-- [RSF](https://rsf.org/): technical consulting for the rebuild of the website of Reporters Without Borders.
+- [Longue vie aux objets](https://longuevieauxobjets.ademe.fr) : développement d'outils - notamment cartographiques et basés sur la donnée - afin d'accélérer l'économie circulaire
+- [APiLos](https://beta.gouv.fr/startups/apilos.html) : Faciliter l'accès aux logements sociaux par la simplification des conventions.
+- [SPPNaut](https://beta.gouv.fr/startups/sppnaut.html) : geolocalisation de données cartographique du SHOM, services hydrographique de la Marine
+- [Terre de Liens](https://terredeliens.org) : migration d'un vieux site sous Spip vers une nouvelle mouture basée sur Wagtail, connectée à SalesForce
+- [RSF](https://rsf.org) : conseil technique pour la refonte du site de Reporters Sans Frontières
 
-If you need help building a project from scratch or improving an existing codebase:
+Si vous avez besoin d'aide pour construire un projet de A à Z, ou améliorer une _codebase_
 
-<a class="button" href="mailto:contact@fabienlefrapper.me">Let's meet</a>
+<a class="button" href="mailto:contact@fabienlefrapper.me">Rencontrons-nous !</a>

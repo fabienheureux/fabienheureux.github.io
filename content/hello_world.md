@@ -1,12 +1,11 @@
 +++
 title = "Hello world"
 date = 2022-02-27
-description = "This is the beginning of my blog. I will write about technology, art, culture, anything I would like to share with the world."
+description = "C'est le début de mon blog. Je compte y parler technologie, art, culture, tout ce que j'ai envie de partager avec le monde."
 +++
 
-My current area of focus revolves around scraping technologies and React Native. Let's start with these interesting links that helped me recently :
+Mes centres d'intérêts du moment tournent autour du _scraping_ et de React Native. On va commencer avec ces liens qui m'ont servi récemment :
+- [Utiliser Selenium au sein d'un conteneur Docker](https://nander.cc/using-selenium-within-a-docker-container)
+- [Mettre en place React Native avec Remix](https://horus.dev/blog/react-native-web-remix-setup)
 
-- [Running selenium in docker](https://nander.cc/using-selenium-within-a-docker-container)
-- [Setting up React Native Web with Remix](https://horus.dev/blog/react-native-web-remix-setup)
-
-PS: If you are curious about the design of this website, the first version was made by [Studio Le Dimanche](https://ledimanche.studio/).
+PS: Si vous êtes curieux concernant le design de ce site, la première version a été designée par [Studio Le Dimanche](https://ledimanche.studio/).

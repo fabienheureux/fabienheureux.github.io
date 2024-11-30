@@ -215,10 +215,11 @@ a:not(.button):hover {
 
 a:not(.button)[target="_blank"]:hover::after {
   content: " ⇱";
+  content: "";
   display: inline-block;
   transform: scaleX(-1);
   font-size: .75em;
-  margin-left: .25rem;
+  /* margin-left: .25rem; */
   vertical-align: top;
 }
 
@@ -443,9 +444,9 @@ footer {
   }
 }
 
-footer a {
+/* footer a {
   text-transform: uppercase;
-}
+} */
 
 article p,
 article pre,
