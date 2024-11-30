@@ -44,9 +44,9 @@
   }
 }
 
-/* 
+/*
   View Transition API properties
-  - https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API 
+  - https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
   - https://developer.chrome.com/docs/web-platform/view-transitions/
 */
 ::view-transition-old(root),
@@ -133,7 +133,7 @@ h6 {
 }
 
 /*
-  Reset - And now custom styles :) 
+  Reset - And now custom styles :)
 */
 ::-moz-selection {
   color: var(--background);
@@ -321,7 +321,7 @@ main ul li:before {
   padding-right: 0.5rem;
 }
 
-main ul, 
+main ul,
 main ol {
   margin: 0 auto 1rem 0;
 }
@@ -450,7 +450,7 @@ footer a {
 article p,
 article pre,
 p, li {
-  max-width: 65ch; 
+  max-width: 65ch;
 }
 
 .footnote-definition p {
@@ -464,8 +464,16 @@ p, li {
 
 
 article h1 {
-  max-width: 25ch; 
+  max-width: 25ch;
   font-size: 4em;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    article h1 {
+       font-size: 3em;
+    }
 }
 
 article h2 {
@@ -484,6 +492,7 @@ article h2 {
   font-size: .8rem;
   display: flex;
   flex-direction: row;
+  word-break: break-word;
 }
 
 
