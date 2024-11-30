@@ -12,6 +12,8 @@ Le code que j'écris est principalement open-source.
 
 Je contribue à [divers](https://github.com/wagtail/wagtail) [projets](https://github.com/GrappleGQL/wagtail-grapple) [open-source](https://github.com/vercel/next.js/). You can find some of my code on [github](https://github.com/fabienheureux).
 
+Sur mon temps libre, je participe aussi à l'organisation du festival [Les Nuits Soniques](https://lesnuitssoniques.com) qui se déroule dans une vieille Chapelle du XIIIème siècle à Auray.
+
 J'écris en français principalement pour parler de musique, et en anglais de code.
 
 ---

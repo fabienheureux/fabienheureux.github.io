@@ -15,5 +15,9 @@
 {% endblock content %}
 
 {% block footer %}
-<a href="/">../</a>
+{% if lang == "fr" %}
+  <a href="/" title="Retour à l'accueil">../</a>
+{% else %}
+    <a href="/" title="Back to the homepage">../</a>
+{% endif %}
 {% endblock %}

@@ -279,7 +279,8 @@ hr {
   border-bottom: var(--border);
   border-width: 2px;
   width: 30vw;
-  margin: var(--p) auto calc(1.25 * var(--p)) 0;
+  margin: calc(var(--p) / 1.5) auto var(--p) 0;
+  break-after: column;
 }
 
 p code {
@@ -332,7 +333,24 @@ main li {
 
 .introduction {
   margin: 1em 0 2em 0;
+  /* column-count: 2; */
+  max-width: 65ch;
 }
+@media (max-width: 1024px) {
+    .introduction {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .introduction {
+        margin: 0 0 2em 0;
+    }
+}
+.introduction p {
+    margin-top: 0;
+}
+
 
 .introduction p,
 .introduction ul {
@@ -462,7 +480,6 @@ p, li {
   padding-right: .5rem;
   display: inline-block;
 }
-
 
 article h1 {
   max-width: 25ch;

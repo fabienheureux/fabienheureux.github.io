@@ -1,0 +1,5 @@
+export AWS_ACCESS_KEY_ID=GKc800b0a74a02f6a6ea22ec76
+export AWS_SECRET_ACCESS_KEY=6900afc2e0ce20681354e2609ae0bfbe2483c13ce5e9904b825c806157182a8d
+export AWS_DEFAULT_REGION='garage'
+
+function aws { command aws --endpoint-url https://garage.deuxfleurs.fr $@ ; }
