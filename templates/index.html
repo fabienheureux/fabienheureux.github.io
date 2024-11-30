@@ -55,7 +55,13 @@
       {% endblock content %}
     </main>
     <footer>
-      {% block footer %}<a href="/">.</a>{% endblock %}
+      {% block footer %}
+      {% if lang == "fr" %}
+        <a href="/en" title="In english, please">./en</a>
+      {% else %}
+        <a href="/" title="Parlez-vous français ?">./fr</a>
+      {% endif %}
+      {% endblock %}
     </footer>
     <script src="{{ get_url(path="i-promise-it-is-only-a-few-lines.js") | safe }}"></script>
   </body>
