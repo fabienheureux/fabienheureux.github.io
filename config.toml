@@ -4,6 +4,10 @@ compile_sass = false
 build_search_index = false
 generate_robots_txt = true
 generate_sitemap = true
+taxonomies = [
+    { name = "tags", feed = true},
+    { name = "genres", feed = true},
+]
 
 [extra]
 title = "Fabien Le Frapper"
@@ -20,3 +24,7 @@ external_links_no_referrer = true
 [languages.en]
 generate_feeds = false
 build_search_index = false
+taxonomies = [
+    { name = "tags", feed = true},
+    { name = "genres", feed = true},
+]

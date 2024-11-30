@@ -2,6 +2,8 @@
 title = "YouTube & Django security middleware"
 date = 2022-03-20
 description = "Django's defaults security settings can prevent from embedding Youtube videos."
+[taxonomies]
+tags=["code"]
 +++
 
 ## TL;DR
