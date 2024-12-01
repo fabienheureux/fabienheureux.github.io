@@ -10,11 +10,9 @@ J'écris du code depuis que j'ai découvert la fonctionnalité _lire la source_ 
 À l'aide de Python et JavaScript, j'accompagne le secteur publics, des associations, ONGs, en concevant des logiciels de qualité, dans l'intérêt général.
 Le code que j'écris est principalement open-source.
 
-Je contribue à [divers](https://github.com/wagtail/wagtail) [projets](https://github.com/GrappleGQL/wagtail-grapple) [open-source](https://github.com/vercel/next.js/). You can find some of my code on [github](https://github.com/fabienheureux).
+Je contribue à [divers](https://github.com/wagtail/wagtail) [projets](https://github.com/GrappleGQL/wagtail-grapple) [open-source](https://github.com/vercel/next.js/). Le code que jecris est disponible sur [github](https://github.com/fabienheureux).
 
 Sur mon temps libre, je participe aussi à l'organisation du festival [Les Nuits Soniques](https://lesnuitssoniques.com) qui se déroule dans une vieille Chapelle du XIIIème siècle à Auray.
-
-J'écris en français principalement pour parler de musique, et en anglais de code.
 
 ---
 
