@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr">
+    <title> - code</title>
+    <link rel="self" type="application/atom+xml" href="https://fabien.cool/tags/code/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://fabien.cool"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-01-25T00:00:00+00:00</updated>
+    <id>https://fabien.cool/tags/code/atom.xml</id>
+    <entry xml:lang="fr">
+        <title>IoT : How I added AirPlay 2 support to BalenaSound on a Sunday Afternoon</title>
+        <published>2023-01-25T00:00:00+00:00</published>
+        <updated>2023-01-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://fabien.cool/deploy-custom-balena-release/"/>
+        <id>https://fabien.cool/deploy-custom-balena-release/</id>
+        
+        <content type="html" xml:base="https://fabien.cool/deploy-custom-balena-release/">&lt;p&gt;I use &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;balena-labs-projects&#x2F;balena-sound&quot;&gt;Balena Sound&lt;&#x2F;a&gt; running on a Raspberry Pi plugged in a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.hifiberry.com&#x2F;shop&#x2F;boards&#x2F;hifiberry-dacplus-rca-version&#x2F;&quot;&gt;DAC&lt;&#x2F;a&gt; at home, as an &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.apple.com&#x2F;fr&#x2F;airplay&#x2F;&quot;&gt;AirPlay&lt;&#x2F;a&gt; receiver.
+In layman’s terms: I play my music through the WiFi on a non-intelligent hifi system using a Raspberry Pi.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Balena Sound&lt;&#x2F;strong&gt; is a mix of two great open-source projects:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.balena.io&#x2F;os&quot;&gt;BalenaOS&lt;&#x2F;a&gt;, which is a portable and reliable operating system targetting embedded devices.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mikebrady&#x2F;shairport-sync&quot;&gt;Shairport sync&lt;&#x2F;a&gt;, an open-source implementation of an AirPlay client, providing AirPlay 2 support since a few weeks now.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Balena Sound uses an outdated Shairport version, and I wanted to check how hard it would be to upgrade to the current release, bringing AirPlay 2 to my modest multiroom setup.&lt;&#x2F;p&gt;
+&lt;p&gt;Note that I have no links with Balena. I am just a IoT hobbyist enjoying a few connected devices. I like to experiment, and Balena offers a few other interesting pre-built OS images, to &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;balena-labs-projects&#x2F;balena-sense&quot;&gt;read from sensors&lt;&#x2F;a&gt; or to create a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;balena-labs-projects&#x2F;balena-cam&quot;&gt;live stream&lt;&#x2F;a&gt;.
+I know of a few free software alternatives to Balena, but I did not find enough time yet to invest into such alternatives.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;where-to-start&quot;&gt;Where to start&lt;&#x2F;h2&gt;
+&lt;p&gt;I did not know where to start, so I simply asked for help and got some quickly in the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;balena-labs-projects&#x2F;balena-sound&#x2F;issues&#x2F;607#issuecomment-1328325747&quot;&gt;GitHub issue queue&lt;&#x2F;a&gt;. Documentation is pretty straightforward:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make some changes to a balena project of your choice.&lt;&#x2F;li&gt;
+&lt;li&gt;Install &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;balena-io&#x2F;balena-cli&quot;&gt;Balena CLI&lt;&#x2F;a&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;Push and deploy these changes.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;I blindly started by bumping the shairport version in Balena Dockerfile.
+Using the Balena CLI, you can easily publish your changes to your fleet by typing &lt;code&gt;balena push balena-sound -s .&lt;&#x2F;code&gt; .
+It will:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Build the containers.&lt;&#x2F;li&gt;
+&lt;li&gt;Push it to your devices.&lt;&#x2F;li&gt;
+&lt;li&gt;Restart those containers on your devices.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;It takes around a minute to build an around a minute to publish. Not a big deal if you have some time to kill on a Sunday 😅&lt;&#x2F;p&gt;
+&lt;p&gt;As expected, it did not work, with the error below:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;airplay  fatal error: Can&amp;#39;t access NQPTP! Is it installed and running?
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;debug&quot;&gt;Debug&lt;&#x2F;h2&gt;
+&lt;p&gt;If you know Docker, debugging can be done locally using &lt;code&gt;docker compose&lt;&#x2F;code&gt;.
+A &lt;code&gt;docker-compose.yml&lt;&#x2F;code&gt; config file is provided with the project, allowing you to &lt;em&gt;build&lt;&#x2F;em&gt; and &lt;em&gt;run&lt;&#x2F;em&gt; docker images locally.
+However if you don’t, you can &lt;em&gt;simply&lt;&#x2F;em&gt; deploy your changes and inspect the logs through balena dashboard on a running balena device build and tweak the &lt;code&gt;Dockerfile&lt;&#x2F;code&gt; accordingly.
+I did both as I needed to test this on my raspberry pi.
+In the end I stopped building locally as deploying on Balena cloud was not much longer, and provided a great developer experience : you get a running software on a remote device after a few minutes, with easy to browse logs.&lt;&#x2F;p&gt;
+&lt;p&gt;In my case, the error above was quite self explanatory : &lt;code&gt;NQPTP&lt;&#x2F;code&gt; - that is required for Shairport Sync v4.1 to run properly - is not running.
+It appears that even if the shairport sync docker image has &lt;code&gt;NQPTP&lt;&#x2F;code&gt; built and installed, it does not run by default with the script set in the entrypoint previously used by Balena Sound.&lt;&#x2F;p&gt;
+&lt;p&gt;The fix and the changes are visible &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;balena-labs-projects&#x2F;balena-sound&#x2F;pull&#x2F;621&quot;&gt;in this pull request&lt;&#x2F;a&gt;.
+They were quickly approved and are now part of Balena Sound 🥳.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;Thanks to the help of the community (&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;maggie44&quot;&gt;maggie44&lt;&#x2F;a&gt; especially), a simple CLI and a nice platform, I was able to publish a new feature to Balena Sound, test it on my own device and release as a test version for others to try it out, all this during a Sunday afternoon.
+I don’t think I experienced such a nice developer experience on a stack I just discovered.&lt;&#x2F;p&gt;
+&lt;p&gt;However, if you know nothing about Docker, it might not be the best platform for you, or it might be the time to learn a few things about it as it seems to be quite popular among IoT projects.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="fr">
+        <title>YouTube &amp; Django security middleware</title>
+        <published>2022-03-20T00:00:00+00:00</published>
+        <updated>2022-03-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://fabien.cool/django-default-security-youtube/"/>
+        <id>https://fabien.cool/django-default-security-youtube/</id>
+        
+        <content type="html" xml:base="https://fabien.cool/django-default-security-youtube/">&lt;h2 id=&quot;tl-dr&quot;&gt;TL;DR&lt;&#x2F;h2&gt;
+&lt;p&gt;When embedding Youtube videos in a Django project, use:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SECURE_REFERRER_POLICY &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;strict-origin-when-cross-origin&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Want to know more? Read on.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;1702255&#x2F;156556134-f519f66f-d731-4fd7-b79d-bc6da7ace48f.png&quot; alt=&quot;image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;DIhWBhf1lPY?feature=oembed&amp;amp;autoplay=1&quot;&gt;Embed link&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;On a recent &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;wagtail.org&#x2F;&quot;&gt;Wagtail&lt;&#x2F;a&gt; project, I embedded YouTube music videos using the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.wagtail.org&#x2F;en&#x2F;stable&#x2F;advanced_topics&#x2F;embeds.html&quot;&gt;embed feature&lt;&#x2F;a&gt; (based on &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;oembed.com&#x2F;&quot;&gt;oEmbed specification&lt;&#x2F;a&gt;)&lt;&#x2F;p&gt;
+&lt;p&gt;Others had reported this issue before for &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;support.google.com&#x2F;youtube&#x2F;thread&#x2F;17866150&#x2F;unavailable-video-due-to-copyright?hl=en&quot;&gt;copyrighted content&lt;&#x2F;a&gt; or video without embedding allowed. The content I was trying to embed is definitely copyrighted and with embedding allowed.&lt;&#x2F;p&gt;
+&lt;p&gt;In a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;codepen.io&#x2F;fabienheureux&#x2F;pen&#x2F;wvPRxed&quot;&gt;Codepen&lt;&#x2F;a&gt; I could display the video properly.&lt;&#x2F;p&gt;
+&lt;p&gt;I looked at the project settings and couldn’t see any causes expect from the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.djangoproject.com&#x2F;en&#x2F;4.0&#x2F;ref&#x2F;middleware&#x2F;#module-django.middleware.security&quot;&gt;&lt;code&gt;Django Security Middleware&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.
+I turned it off and I could see the video :tada:.
+It seemed that some security settings didn’t let the browser load the video.&lt;&#x2F;p&gt;
+&lt;p&gt;Wagtail applies the default configuration from &lt;code&gt;Django Security Middleware&lt;&#x2F;code&gt;, it’s the standard way of bootstrapping a new project through the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.wagtail.org&#x2F;en&#x2F;stable&#x2F;getting_started&#x2F;tutorial.html#generate-your-site&quot;&gt;official &lt;code&gt;wagtail start&lt;&#x2F;code&gt; command&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I looked at the &lt;code&gt;Django Security Middleware&lt;&#x2F;code&gt; documentation and various &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.djangoproject.com&#x2F;en&#x2F;4.0&#x2F;ref&#x2F;middleware&#x2F;#django.middleware.security.SecurityMiddleware&quot;&gt;security settings&lt;&#x2F;a&gt; I could tweak.&lt;&#x2F;p&gt;
+&lt;p&gt;After toggling settings one by one, I found the culprit: &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.djangoproject.com&#x2F;en&#x2F;4.0&#x2F;ref&#x2F;settings&#x2F;#std:setting-SECURE_REFERRER_POLICY&quot;&gt;&lt;code&gt;SECURE_REFERER_POLICY&lt;&#x2F;code&gt;&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;This setting relates to the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;HTTP&#x2F;Headers&#x2F;Referer&quot;&gt;Referer HTTP header&lt;&#x2F;a&gt; which gives information about the page making a request (i.e. the request’s origin).
+Moreover, this setting directly interfaces the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Web&#x2F;HTTP&#x2F;Headers&#x2F;Referrer-Policy&quot;&gt;Referrer-Policy HTTP header&lt;&#x2F;a&gt; which controls how much information the &lt;code&gt;Referer&lt;&#x2F;code&gt; HTTP header contains.&lt;&#x2F;p&gt;
+&lt;p&gt;The default value for Django is &lt;code&gt;same-origin&lt;&#x2F;code&gt;, which sends information only for request on the same domain. In this case, a request to &lt;code&gt;youtube.com&lt;&#x2F;code&gt; won’t send any &lt;code&gt;Referer&lt;&#x2F;code&gt; HTTP header.&lt;&#x2F;p&gt;
+&lt;p&gt;Youtube requires the &lt;code&gt;Referer&lt;&#x2F;code&gt; HTTP header set when embedding some videos.&lt;&#x2F;p&gt;
+&lt;p&gt;I ended up setting the following in my configuration:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# settings&#x2F;base.py
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SECURE_REFERRER_POLICY &lt;&#x2F;span&gt;&lt;span&gt;= &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;strict-origin-when-cross-origin&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Some possible reasons of why Youtube requires the &lt;code&gt;Referer&lt;&#x2F;code&gt; HTTP header:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Youtube restricts Copyrighted content to some countries, it checks the origin website before sending the content.&lt;&#x2F;li&gt;
+&lt;li&gt;It’s possible to &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;support.google.com&#x2F;youtube&#x2F;answer&#x2F;6301625?hl=en&quot;&gt;restrict the embedding&lt;&#x2F;a&gt; of videos. This uses the &lt;code&gt;Referer&lt;&#x2F;code&gt; HTTP header to filter which websites can embed content.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Thanks to &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;nobe4&quot;&gt;nobe4&lt;&#x2F;a&gt; for the &lt;del&gt;rewrite&lt;&#x2F;del&gt; proofreading.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
