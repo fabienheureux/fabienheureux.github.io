@@ -322,6 +322,9 @@ main ul li:before {
   content: "☞";
   padding-right: 0.5rem;
 }
+main ul li li:before {
+    content: "◎"
+}
 
 main ul,
 main ol {
@@ -329,6 +332,10 @@ main ol {
 }
 main li {
   margin: 0.5rem 0 0 0;
+}
+main li li {
+    margin-left: 1rem;
+    font-size: 1.175rem;
 }
 
 .introduction {

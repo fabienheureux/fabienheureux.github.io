@@ -2,25 +2,79 @@
 title = "Maurice Estève, formes et ChatGPT"
 date = 2024-11-30
 description = """
-Je cherchais à illustrer un futur article.
-J'ai demandé à ChatGPT de me générer une forme en HTML/CSS inspirée de De Stijl. Le résultat était assez catastrophique...
-Je lui ai à la place demandé de générer un script python générant des formes aléatoires, basées sur une peinture de Maurice Estève.
+Je cherchais à illustrer un futur article. J'ai voulu voir ce que permettait ChatGPT en la matière.
+Au final, il a révélé un potentiel intéressant, notamment pour du creative coding
 """
 +++
 
+**Objectif** : obtenir une méthode réutilisable permettant de générer des illustrations.
 
-### Le prompt
+Je ne souhaite pas utiliser [Midjourney](https://en.wikipedia.org/wiki/Midjourney) ou [DALL-E](https://en.wikipedia.org/wiki/DALL-E) car l'objectif est de conserver des pages légères.
 
+## Première version
+
+Sachant le travail du mouvement De Stijl géométrique, il se prête bien à une illustration légère vectorielle.
+Dans ce premier jet, j'ai demandé à ChatGPT de me générer une forme en HTML/CSS inspirée de [De Stijl](https://fr.wikipedia.org/wiki/De_Stijl).
+
+```
+can you generate a design using css and html, inspired by de Stijl, using only #5a5766 and #f25c80 colors ?
+```
+
+Le résultat - ci-dessous - était assez catastrophique...bien que pas inintéressant.
+
+<style>
+    #de-stijl.container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 4px;
+        height: 20rem;
+        background-color: white;
+    }
+    #de-stijl .block {
+        background-color: #f25c80;
+        border: 4px solid #5a5766;
+    }
+    #de-stijl .tall { grid-row: span 2; }
+    #de-stijl .wide { grid-column: span 2; }
+    #de-stijl .large { grid-column: span 2; grid-row: span 2; }
+</style>
+<div class="container" id="de-stijl">
+    <div class="block"></div>
+    <div class="block wide"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block tall"></div>
+    <div class="block"></div>
+    <div class="block large"></div>
+    <div class="block"></div>
+    <div class="block tall"></div>
+    <div class="block wide"></div>
+</div>
+
+Après plusieurs tentatives similaires, le résultat était toujours assez décevant.
+Même sans restreindre les couleurs à utiliser.
+
+**J'ai ajusté le prompt**, pour lui demander de générer un SVG directement :
 ```
 can you generate an svg, inspired by this painting
 ```
 
-Voilà l'image :
+La peinture en question :
 ![Maurice Estève](./image.jpg)
+
+J'utilise assez rarement ChatGPT, et ai découvert qu'à chaque étape de génération du SVG, le **code Python généré est accessible**.
+
+Le code généré était en réalité composé de deux scripts Python successif :
+- **Un premier** passablement inutile :
+  - il télécharge l'image et l'analyse avec [Pillow](https://github.com/python-pillow/Pillow)
+  - puis la convertit en array Numpy
+  - puis...n'en fait pas grand chose. A priori cette partie lui sert essentiellement à en déterminer les dimensions (et semble un peu _overkill_)
+- **Un second** se chargeant de la génération du SVG proprement dite. C'est à lui qu'on s'intéresse ci-après.
 
 ### Le script
 
-Ci-dessous le script généré, très légèrement remanié pour fonctionner en local :
+Ci-dessous le script généré :
 
 ```py
 import random
@@ -30,16 +84,6 @@ import numpy as np
 # Open the uploaded image
 image_path = "./image.jpg"
 image = Image.open(image_path)
-
-# Convert the image to RGB
-image_rgb = image.convert("RGB")
-
-# Convert the image to numpy array for analysis
-image_array = np.array(image_rgb)
-
-# Check the shape of the image to understand its dimensions
-image_array.shape
-
 
 # Define a function to generate random colors similar to the ones in the image
 def generate_random_color():
@@ -91,7 +135,10 @@ with open(svg_path, "w") as file:
     file.write(svg_content)
 ```
 
-Je l'ai retouché pour n'afficher que certaines couleurs, car le première version proposait des couleurs un peu trop ternes.
+Il n'est pas forcément utilisable tel quel, je l'ai **très légèrement remanié** pour fonctionner sur ma machine en local.
+Notamment pour charger une image locale plutôt que distante.
+
+**Dans un second temps**, je l'ai retouché pour n'afficher que certaines couleurs, car le première version proposait des couleurs un peu trop ternes.
 
 ```py
 
@@ -99,15 +146,9 @@ def generate_random_color():
     # Define basic colors and their corresponding RGB values
     basic_colors_rgb = {
         "red": (255, 0, 0),
-        # "green": (0, 255, 0),
         "blue": (0, 0, 255),
         "yellow": (255, 255, 0),
         "black": (0, 0, 0),
-        # "white": (255, 255, 255),
-        # "orange": (255, 165, 0),
-        # "purple": (128, 0, 128),
-        # "pink": (255, 192, 203),
-        # "brown": (165, 42, 42),
     }
 
     # Select a random color
@@ -118,7 +159,7 @@ def generate_random_color():
     return f"rgb{rgb_value}"
 ```
 
-Et ai ajouté une boucle pour générer une centaine de résultats en faisant varier le nombre de formes
+**Enfin**, j'ai ajouté une boucle pour générer une centaine de résultats en faisant varier le nombre de formes.
 
 ```py
 for i in range(1, 99):
@@ -130,7 +171,11 @@ for i in range(1, 99):
         file.write(svg_content)
 ```
 
+## Conclusion
+
+On voit ici que ChatGPT (et les LLM plus généralement), détourné de l'utilisation initiale - à savoir obtenir un SVG - permet de créer une méthodologie réutilisable.
 J'aurais certainement pu aboutir à un résultat similaire en me creusant un peu la tête...mais ça m'aurait certainement pris quelques heures de plus.
+
 
 ---
 
