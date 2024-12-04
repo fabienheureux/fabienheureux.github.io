@@ -341,7 +341,7 @@ main li li {
 .introduction {
   margin: 1em 0 2em 0;
   /* column-count: 2; */
-  max-width: 65ch;
+  max-width: 75ch;
 }
 @media (max-width: 1024px) {
     .introduction {
