@@ -178,6 +178,7 @@ On voit ici que ChatGPT (et les LLM plus généralement), détourné de l'utilis
 J'aurais certainement pu aboutir à un résultat similaire en me creusant un peu la tête...mais ça m'aurait certainement pris quelques heures de plus.
 
 Autant les LLM montrent leurs limites (à mes yeux) pour de la génération d'images, car on retrouve un style assez uniforme et parfois fade.
+
 Autant pour du [creative coding](https://en.wikipedia.org/wiki/Creative_coding), on peut facilement imaginer des usages vraiment intéressants, où les *hallucinations* peuvent amener à des
 
 
