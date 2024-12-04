@@ -1,20 +1,21 @@
 +++
-title = "Maurice Estève, formes et ChatGPT"
+title = "Maurice Estève, ChatGPT et creative coding"
 date = 2024-11-30
 description = """
-Je cherchais à illustrer un futur article. J'ai voulu voir ce que permettait ChatGPT en la matière.
-Au final, il a révélé un potentiel intéressant, notamment pour du creative coding
+Cherchant à illustrer un futur article. J'ai voulu voir ce que permettait ChatGPT en la matière. <br>
+Pas convaincu au départ, l'outil a finalement révélé un potentiel intéressant, notamment pour du _creative coding_.
 """
 +++
 
 **Objectif** : obtenir une méthode réutilisable permettant de générer des illustrations.
 
-Je ne souhaite pas utiliser [Midjourney](https://en.wikipedia.org/wiki/Midjourney) ou [DALL-E](https://en.wikipedia.org/wiki/DALL-E) car l'objectif est de conserver des pages légères.
+**Préambule** : inspiré par des médias comme [Le Monde Diplomatique](https://www.monde-diplomatique.fr), qui proposent des oeuvres en guise d'illustrations, je souhaitais illuser mes futurs articles.
+Pour autant, je souhaite pas utiliser [Midjourney](https://en.wikipedia.org/wiki/Midjourney) ou [DALL-E](https://en.wikipedia.org/wiki/DALL-E) car l'objectif est de conserver des pages légères. Je suis donc parti sur des illustrations à base de CSS et HTML.
 
 ## Première version
 
-Sachant le travail du mouvement De Stijl géométrique, il se prête bien à une illustration légère vectorielle.
-Dans ce premier jet, j'ai demandé à ChatGPT de me générer une forme en HTML/CSS inspirée de [De Stijl](https://fr.wikipedia.org/wiki/De_Stijl).
+Le travail du mouvement [De Stijl](https://fr.wikipedia.org/wiki/De_Stijl) étant très géométrique, il se prête parfaite bien à une illustration légère.
+Dans ce premier jet, j'ai demandé à ChatGPT de me générer une forme en HTML/CSS inspirée de ce mouvement.
 
 ```
 can you generate a design using css and html, inspired by de Stijl, using only #5a5766 and #f25c80 colors ?
@@ -175,6 +176,9 @@ for i in range(1, 99):
 
 On voit ici que ChatGPT (et les LLM plus généralement), détourné de l'utilisation initiale - à savoir obtenir un SVG - permet de créer une méthodologie réutilisable.
 J'aurais certainement pu aboutir à un résultat similaire en me creusant un peu la tête...mais ça m'aurait certainement pris quelques heures de plus.
+
+Autant les LLM montrent leurs limites (à mes yeux) pour de la génération d'images, car on retrouve un style assez uniforme et parfois fade.
+Autant pour du [creative coding](https://en.wikipedia.org/wiki/Creative_coding), on peut facilement imaginer des usages vraiment intéressants, où les *hallucinations* peuvent amener à des
 
 
 ---
