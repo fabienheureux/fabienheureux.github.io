@@ -1,6 +1,6 @@
 +++
 title = "Export All Your Apple Voice Memos at Once"
-date = 2024-12-11
+date = 2025-12-11
 description = "Apple Voice Memos doesn't have an \"export all\" button. Here's a one-liner to back them all up."
 [taxonomies]
 tags=["til", "macos", "code"]

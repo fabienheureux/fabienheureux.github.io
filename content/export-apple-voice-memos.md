@@ -1,6 +1,6 @@
 +++
 title = "Exporter tous vos enregistrements du Dictaphone Apple en une seule fois"
-date = 2024-12-11
+date = 2025-12-11
 description = "Le Dictaphone d'Apple n'a pas de bouton \"tout exporter\". Voici une ligne de commande pour tout sauvegarder."
 [taxonomies]
 tags=["til", "macos", "code"]
