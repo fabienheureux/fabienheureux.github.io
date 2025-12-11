@@ -8,7 +8,7 @@ b:
 
 deploy:
 	make b
-	./deploy.sh
+	npx dxfl deploy fabien.cool ./public -y
 
 d:
 	make deploy
