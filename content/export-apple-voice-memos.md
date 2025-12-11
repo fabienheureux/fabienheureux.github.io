@@ -36,7 +36,7 @@ curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e
 
 **Note :** Si votre chemin contient des espaces, mettez-le entre guillemets :
 ```bash
-curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e5bd00b402/raw | bash -s "/chemin/avec espaces/MesMemos"
+curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e5bd00b402/raw | bash -s -- "/chemin/avec espaces/MesMemos"
 ```
 
 **Préfixer avec la date d'enregistrement** (crée des noms comme `2024-12-11 Notes de réunion.m4a`) :

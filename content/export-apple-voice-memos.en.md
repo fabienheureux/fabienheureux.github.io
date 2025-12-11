@@ -31,12 +31,12 @@ curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e
 **Export to a specific folder:**
 
 ```bash
-curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e5bd00b402/raw | bash -s ~/Desktop/MyMemos
+curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e5bd00b402/raw | bash -s -- ~/Desktop/MyMemos
 ```
 
 **Note:** If your path has spaces, wrap it in quotes:
 ```bash
-curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e5bd00b402/raw | bash -s "/path/with spaces/MyMemos"
+curl -s https://gist.githubusercontent.com/fabienheureux/94e0599fe675b9b2414391e5bd00b402/raw | bash -s -- "/path/with spaces/MyMemos"
 ```
 
 **Prepend recording date** to filenames (creates names like `2024-12-11 Meeting Notes.m4a`):
